@@ -40,8 +40,8 @@ android {
     compileSdk = 35
     ndkVersion = "26.3.11579264"
     defaultConfig {
-        applicationId = "com.antutu.ABenchMark"
-        minSdk = 31
+        applicationId = "info.cemu.cemu"
+        minSdk = 30
         targetSdk = 35
         versionCode = getVersionCode()
         versionName = getVersionName()
