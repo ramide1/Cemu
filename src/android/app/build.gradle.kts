@@ -38,9 +38,9 @@ fun getVersionCode(): Int = System.getenv("VERSION_CODE")?.toIntOrNull() ?: 1
 android {
     namespace = "info.cemu.cemu"
     compileSdk = 35
-    ndkVersion = "26.1.10909125"
+    ndkVersion = "26.3.11579264"
     defaultConfig {
-        applicationId = "info.cemu.cemu"
+        applicationId = "com.antutu.ABenchMark"
         minSdk = 31
         targetSdk = 35
         versionCode = getVersionCode()
@@ -90,10 +90,20 @@ android {
                 }
             }
         }
+        create("nokeyRelease") {
+            initWith(getByName("debug"))
+            applicationIdSuffix = ""
+            isMinifyEnabled = true
+            isDebuggable = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
     }
     compileOptions {
-        sourceCompatibility(JavaVersion.VERSION_17)
-        targetCompatibility(JavaVersion.VERSION_17)
+        sourceCompatibility(JavaVersion.VERSION_21)
+        targetCompatibility(JavaVersion.VERSION_21)
     }
     externalNativeBuild {
         cmake {
@@ -135,7 +145,7 @@ android {
         compose = true
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "21"
     }
 }
 
